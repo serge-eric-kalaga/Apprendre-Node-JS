@@ -1,10 +1,17 @@
 const express = require("express")
+const morgan = require('morgan')
 
 app = express()
 
+
+// --------------- Middleware --------------
+
 //static files folder
 app.use(express.static("static"))
+// Morgan for request time
+app.use(morgan("dev"))
 
+// --------------- End Middleware --------------
   
 // /home
 app.get("/home", (req, res)=>{
