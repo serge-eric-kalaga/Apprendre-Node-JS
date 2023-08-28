@@ -2,6 +2,9 @@ const express = require("express")
 
 app = express()
 
+//static files folder
+app.use(express.static("static"))
+
   
 // /home
 app.get("/home", (req, res)=>{
