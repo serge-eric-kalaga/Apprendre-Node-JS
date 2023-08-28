@@ -2,12 +2,10 @@ const express = require("express")
 
 app = express()
 
-// get absolute path
-var __dirname = process.cwd();
  
-// Home
+// /home
 app.get("/home", (req, res)=>{
-    res.sendFile(__dirname+"/index.html");
+    res.sendFile("./index.html", {root:__dirname});
 })
 
 app.listen("8080", ()=>{
