@@ -19,7 +19,8 @@ app.use(morgan("dev"))
   
 // /home
 app.get("/home", (req, res)=>{
-    res.status(200).render("index");
+    const heure = Date().toString()
+    res.status(200).render("index", {heure});
 })
 app.get("/", (req, res)=>{
     res.status(300).redirect("/home");
