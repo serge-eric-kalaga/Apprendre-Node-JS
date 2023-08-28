@@ -2,10 +2,14 @@ const express = require("express")
 
 app = express()
 
- 
+  
 // /home
 app.get("/home", (req, res)=>{
     res.sendFile("./index.html", {root:__dirname});
+})
+
+app.use((req, res)=>{
+    res.sendFile("./404.html", {root:__dirname});
 })
 
 app.listen("8080", ()=>{
