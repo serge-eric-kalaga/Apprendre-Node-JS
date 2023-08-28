@@ -15,3 +15,8 @@ else{
          console.log(error)
     })
 }
+
+// renommer un dossier
+fs.rename(dossierPath, dossierPath+"new", (err)=>{
+    console.log(err);
+})
