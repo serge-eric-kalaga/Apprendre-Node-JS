@@ -5,7 +5,7 @@ const filetext = "Hello world !"
 
 // creer un fichier
 fs.writeFile(filename, filetext, (err)=>{
-    console.log(err);
+    err ? console.log(err) : null;
 })
 
 // lire le contenu d'un fichier
