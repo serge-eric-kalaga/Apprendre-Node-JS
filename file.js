@@ -23,3 +23,8 @@ fs.readFile(filename, (err, data)=>{
 fs.rename(filename, filenewname, (err)=>{
     err ? console.log(err) : null;
 })
+
+// supprimer un fichier
+fs.rm(filenewname, (err)=>{
+    err ? console.log(err) : null;
+})
