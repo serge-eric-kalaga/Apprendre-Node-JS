@@ -16,7 +16,12 @@ else{
     })
 }
 
-// renommer un dossier
-fs.rename(dossierPath, dossierPath+"new", (err)=>{
+// supprimer un dossier
+fs.rmdir(dossierPath, (err)=>{
     console.log(err);
 })
+
+// renommer un dossier
+// fs.rename(dossierPath, dossierPath+"new", (err)=>{
+//     console.log(err);
+// })
