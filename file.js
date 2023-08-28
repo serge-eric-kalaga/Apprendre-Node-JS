@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const filename = "./MonFichier.txt"
+const filenewname = "./MonFichierNew.txt"
 const filetext = "Hello world !"
 
 // creer un fichier
@@ -16,4 +17,9 @@ fs.readFile(filename, (err, data)=>{
     else{
         console.log(data.toString());
     }
+})
+
+// renomme un fichier
+fs.rename(filename, filenewname, (err)=>{
+    err ? console.log(err) : null;
 })
