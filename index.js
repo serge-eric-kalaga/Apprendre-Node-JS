@@ -3,6 +3,10 @@ const morgan = require('morgan')
 
 app = express()
 
+// --------------- Definition du moteur de template --------------
+app.set("view engine", "ejs")
+app.set("views", __dirname + "/html")
+
 
 // --------------- Middleware --------------
 
@@ -15,14 +19,14 @@ app.use(morgan("dev"))
   
 // /home
 app.get("/home", (req, res)=>{
-    res.status(200).sendFile("./index.html", {root:__dirname});
+    res.status(200).render("index");
 })
 app.get("/", (req, res)=>{
     res.status(300).redirect("/home");
 })
 
 app.use((req, res)=>{
-    res.status(404).sendFile("./404.html", {root:__dirname});
+    res.status(404).render("404");
 })
 
 app.listen("8080", ()=>{
