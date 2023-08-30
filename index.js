@@ -1,5 +1,7 @@
 const express = require("express")
 const morgan = require('morgan')
+const body_parser = require("body-parser")
+const StatusCodes = require("http-status-codes")
 
 app = express()
 
@@ -22,12 +24,21 @@ const task_list = [
 
 // Morgan for request time
 app.use(morgan("dev"))
+// body parser pour la serialisation des donnees
+app.use(body_parser.json())
 
 // --------------- End Middleware --------------
   
 // task list
-app.get("/", (req, res)=>{
-    res.status(300).send(task_list)
+app.get("/task", (req, res)=>{
+    res.status(StatusCodes.OK).send(task_list)
+})
+
+// ajouter une nouvelle tache
+app.post("/task", (req, res)=>{
+    const task = req.body
+    task_list.push(task)
+    res.status(StatusCodes.CREATED).send({message:'tache creee'})
 })
 
 app.use((req, res)=>{
